@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F1F0E8">
+  <meta name="description" content="Portfolio of Sammy S. Balanay — IT professional, web developer, web programmer, and freelance graphic designer.">
+  <title>Sammy S. Balanay — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#F1F0E8;--cream-2:#F8F7F1;--cream-3:#E5E3DA;
+      --ink:#171717;--ink-2:#353533;--muted:#6E6D67;--quiet:#A3A198;
+      --red:#E52520;--red-dark:#B81713;--line:rgba(23,23,23,.16);
+      --display:"Space Grotesk","Hiragino Sans","Yu Gothic",sans-serif;
+      --body:"Manrope","Hiragino Sans","Yu Gothic",sans-serif;
+      --pad:clamp(1.25rem,6vw,7rem);--nav-h:68px;
+      --huge:clamp(4.2rem,11vw,10.8rem);--title:clamp(3.5rem,8vw,8rem);
+      --body-size:clamp(.88rem,.82rem + .2vw,1rem);
+    }
+    *{
+      box-sizing:border-box} 
+    html{
+      scroll-behavior:smooth;
+      background:var(--cream)
+    }
+    body{margin:0;background:var(--cream);color:var(--ink);font:var(--body-size)/1.65 var(--body);-webkit-font-smoothing:antialiased}
+    a{color:inherit} 
+    button{font:inherit} 
+    ::selection{background:var(--red);color:#fff}
+    :focus-visible{outline:2px solid var(--red);outline-offset:4px}
+    .skip{position:fixed;z-index:1000;top:.6rem;left:.6rem;padding:.6rem .8rem;background:var(--ink);color:#fff;transform:translateY(-150%)}
+    .skip:focus{transform:none}
+
+    .nav{position:fixed;z-index:100;inset:0 0 auto;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(241,240,232,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+    .brand{text-decoration:none;font:700 .75rem/1 var(--display);letter-spacing:.08em;text-transform:uppercase}.brand b{color:var(--red)}
+    .links{display:flex;align-items:center;gap:clamp(.7rem,2vw,2rem)}
+    .links a{position:relative;text-decoration:none;font-size:.63rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .links a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:var(--red);transition:right .25s ease}
+    .links a:hover,.links a.active{color:var(--ink)}.links a:hover::after,.links a.active::after{right:0}
+    .menu{display:none;border:0;background:none;padding:.5rem;cursor:pointer;font-weight:800}
+
+    main{padding-top:var(--nav-h)}
+    .section{position:relative;isolation:isolate;min-height:calc(100svh - var(--nav-h));padding:clamp(4.5rem,8vw,8rem) var(--pad);overflow:hidden;border-bottom:1px solid var(--line);display:grid;align-items:center;scroll-margin-top:var(--nav-h)}
+    .section:nth-child(even){background:var(--cream-2)}
+    .section::before{content:attr(data-index);position:absolute;right:clamp(1rem,2.5vw,2.8rem);bottom:1.25rem;color:var(--quiet);font:700 .58rem/1 var(--display);letter-spacing:.14em}
+    .section::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.18;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E")}
+    .kicker{display:block;margin-bottom:1.3rem;color:var(--muted);font-size:.61rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0} h1,h2,h3{font-family:var(--display)}
+    .headline{margin:0;font-size:var(--huge);font-weight:700;line-height:.77;letter-spacing:-.075em;text-wrap:balance}
+    .section-title{margin:0;font-size:var(--title);font-weight:700;line-height:.8;letter-spacing:-.07em}.red{color:var(--red)}
+    .lead{max-width:48ch;color:var(--ink-2);font-size:clamp(1rem,.9rem + .35vw,1.24rem);line-height:1.65}
+    .small{font-size:.72rem;color:var(--muted);line-height:1.65}.rule{height:1px;background:var(--line)}
+    .dot{width:clamp(36px,4vw,58px);aspect-ratio:1;border-radius:50%;background:var(--red);box-shadow:0 0 0 7px var(--cream),0 0 0 8px var(--line)}
+    .visual{position:relative;overflow:hidden;background:#252525;min-height:260px}
+    .visual svg{display:block;width:100%;height:100%}.caption{position:absolute;left:.7rem;bottom:.55rem;color:rgba(255,255,255,.72);font-size:.5rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+    .meta{margin:0;display:grid;gap:.6rem}.meta div{display:grid;grid-template-columns:6rem 1fr;gap:1rem;padding-top:.55rem;border-top:1px solid var(--line)}.meta dt{color:var(--muted);font-size:.55rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.meta dd{margin:0;font-size:.72rem;color:var(--ink-2)}
+
+    /* HOME */
+    .home{grid-template-columns:.83fr 1.17fr;gap:clamp(2rem,6vw,7rem)}
+    .home-copy{align-self:end;padding-bottom:2rem}.home .headline .name{display:block;color:var(--red)}
+    .roles{margin:2rem 0 0;max-width:30rem;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.roles span{padding:.7rem .5rem 0 0;color:var(--muted);font-size:.6rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+    .portrait-wrap{position:relative;height:min(72vh,720px)}
+    .portrait{height:100%;margin-left:auto;width:min(78%,560px)}
+    .portrait img {width: 100%;height: 100%;object-fit: cover;display: block;}
+    .portrait-wrap .dot{position:absolute;left:10%;top:13%;z-index:3}.side-word{position:absolute;right:-.08em;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;color:var(--red);font:700 clamp(2.5rem,5vw,5.4rem)/.8 var(--display);letter-spacing:-.06em}
+
+    /* ABOUT */
+    .about{grid-template-columns:.85fr 1.15fr;gap:clamp(3rem,8vw,10rem)}
+    .about-title{align-self:start}.about-title .dot{margin:2.5rem 0 0 55%}
+    .about-content{display:grid;grid-template-columns:1fr .78fr;gap:clamp(1.5rem,4vw,4rem);align-items:end}
+    .about-copy{align-self:center}.about-copy .lead:first-letter{font:700 4.5rem/.75 var(--display);float:left;color:var(--red);padding:.15rem .45rem 0 0}
+    .about-image{height:min(58vh,560px)}
+
+    /* SKILLS */
+    .skills{grid-template-rows:auto 1fr;align-content:center}.skills-head{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:clamp(2.5rem,6vw,6rem)}
+    .skills-head .lead{max-width:35ch;margin:0}.skill-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(2rem,7vw,8rem);align-items:center}
+    .skill-visual{height:min(48vh,480px)}.skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:0 2rem;border-top:1px solid var(--ink)}
+    .skill-group{padding:1.2rem 0 1.6rem;border-bottom:1px solid var(--line)}.skill-group h3{display:flex;justify-content:space-between;margin:0 0 .8rem;font-size:1rem;letter-spacing:-.02em}.skill-group h3 span{color:var(--green);font-size:.65rem}
+    .tags{display:flex;flex-wrap:wrap;gap:.35rem .7rem}.tags span{font-size:.69rem;color:var(--muted)}
+
+    /* PROJECTS */
+    .projects{display:block;padding-top:clamp(4rem,7vw,7rem)}.projects-head{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:end;margin-bottom:clamp(3rem,6vw,6rem)}.projects-head .lead{margin:0}
+    .project-list{border-top:1px solid var(--ink)}.project{display:grid;grid-template-columns:5rem .9fr 1.15fr .6fr;gap:clamp(1rem,3vw,3rem);align-items:center;padding:clamp(1.5rem,3vw,2.8rem) 0;border-bottom:1px solid var(--line)}
+    .project-no{color:var(--red);font:700 clamp(2.4rem,4vw,4.4rem)/1 var(--display);letter-spacing:-.07em}.project h3{margin:0 0 .45rem;font-size:clamp(1.4rem,2.5vw,2.5rem);line-height:1;letter-spacing:-.05em}.project p{margin:0;max-width:35ch;font-size:.72rem;color:var(--muted)}
+    .project-thumb{height:clamp(130px,15vw,190px)}.stack{text-align:right;color:var(--muted);font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+    /* EXPERIENCE */
+    .experience{grid-template-columns:.78fr 1.22fr;gap:clamp(3rem,8vw,10rem)}.experience-intro{align-self:start}.experience-intro .lead{margin-top:2rem}.experience-intro .dot{margin:3rem 0 0 60%}
+    .timeline{border-top:1px solid var(--ink)}.entry{display:grid;grid-template-columns:8rem 1fr;gap:2rem;padding:clamp(1.5rem,3vw,2.5rem) 0;border-bottom:1px solid var(--line)}.entry .type{color:var(--red);font-size:.58rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.entry h3{margin:0 0 .55rem;font-size:clamp(1.25rem,2vw,2rem);line-height:1.1;letter-spacing:-.04em}.entry p{margin:0;color:var(--muted);font-size:.76rem;max-width:60ch}.entry ul{margin:.75rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.35rem 1rem;color:var(--ink-2);font-size:.67rem}.entry li::before{content:"•";color:var(--red);margin-right:.4rem}
+
+    /* CONTACT */
+    .contact{grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,8vw,10rem)}.contact-left{position:relative}.contact-left .dot{position:absolute;right:5%;top:10%}.contact-image{width:48%;height:230px;margin-top:4rem}
+    .contact-right{align-self:end}.contact-right .lead{margin:0 0 3rem}.contact-links{border-top:1px solid var(--ink)}.contact-links a{display:grid;grid-template-columns:1fr auto;align-items:center;padding:1rem 0;border-bottom:1px solid var(--line);text-decoration:none;font:700 clamp(1rem,1.5vw,1.35rem)/1 var(--display)}.contact-links a span{font:700 .58rem/1 var(--body);letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}.contact-links a:hover{color:var(--red)}.contact-links a:hover span{color:var(--red)}
+
+
+    .reveal{opacity:1;transform:none}
+    @media(prefers-reduced-motion:no-preference){html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.2,.8,.2,1),transform .75s cubic-bezier(.2,.8,.2,1)}html.js .reveal.visible{opacity:1;transform:none}.visual svg{transition:transform .8s cubic-bezier(.2,.8,.2,1)}.visual:hover svg{transform:scale(1.025)}}
+
+    @media(max-width:900px){
+      .home,.about,.experience,.contact{grid-template-columns:1fr}.section{min-height:auto;padding-top:5rem;padding-bottom:5rem}
+      .portrait-wrap{height:65vh}.home-copy{order:2}.portrait-wrap{order:1}.side-word{right:0}.about-content{grid-template-columns:1fr 1fr}.skill-layout{grid-template-columns:1fr}.skills-head,.projects-head{display:grid;grid-template-columns:1fr}.project{grid-template-columns:4rem 1fr 1fr}.project-thumb{grid-column:2}.stack{grid-column:3;grid-row:2}.contact-right{align-self:auto}
+    }
+    @media(max-width:680px){
+      :root{--nav-h:60px}.nav{padding:0 1rem}.menu{display:block}.links{position:absolute;top:100%;left:0;right:0;display:none;padding:1rem;background:var(--cream);border-bottom:1px solid var(--line)}.nav.open .links{display:grid}.links a{padding:.65rem}
+      .section{padding:4.2rem 1.15rem}.home{padding-top:2rem}.portrait-wrap{height:56vh}.portrait{width:78%;min-height:390px}.roles{grid-template-columns:1fr}.roles span{padding:.55rem 0;border-bottom:1px solid var(--line)}
+      .about-content{grid-template-columns:1fr}.about-image{height:45vh;width:70%;justify-self:end}.about-title .dot{margin-left:72%}
+      .skills-head{margin-bottom:2.5rem}.skill-groups{grid-template-columns:1fr}.skill-visual{height:38vh}
+      .project{grid-template-columns:3rem 1fr;padding:1.5rem 0}.project-thumb{grid-column:1/3;width:88%;justify-self:end}.stack{grid-column:2;grid-row:auto;text-align:left}.project p{max-width:none}
+      .entry{grid-template-columns:1fr;gap:.5rem}.experience-intro .dot{margin-left:75%}
+      .contact-image{width:58%;height:190px}.contact-left .dot{right:10%}
+    }
+    @media print{.nav,.skip{display:none}main{padding:0}.section{min-height:178mm;page-break-after:always;padding:15mm}.section:last-child{page-break-after:auto}}
+    @page{size:A4 landscape;margin:0}
+  </style>
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#home">Skip to content</a>
+<nav class="nav" aria-label="Main navigation">
+  <a class="brand" href="#home">Sammy <b>•</b> Balanay</a>
+  <button class="menu" type="button" aria-expanded="false" aria-label="Open menu">MENU</button>
+  <div class="links">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+<main>
+  <section class="section home reveal" id="home" aria-labelledby="home-title">
+    <div class="home-copy">
+      <span class="kicker">Portfolio / IT + development + design</span>
+      <h1 class="headline" id="home-title">Sammy S.<span class="name">Balanay</span></h1>
+      <div class="roles"><span>IT Professional</span><span>Web Developer</span><span>Graphic Designer</span></div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="visual portrait">
+        <img src="ID PICTURE.png" alt="Sammy S. Balanay">
+        <span class="caption">Sammy S. Balanay / portrait</span>
+      </div>
+      <span class="dot" aria-hidden="true"></span><span class="side-word" aria-hidden="true">portfolio</span>
+    </div>
+  </section>
+
+  <section class="section about reveal" id="about" aria-labelledby="about-title">
+    <div class="about-title"><span class="kicker">Profile / who I am</span><h2 class="section-title red" id="about-title">about<br>me</h2><div class="dot" aria-hidden="true"></div></div>
+    <div class="about-content">
+      <div class="about-copy">
+        <p class="lead">Sammy S. Balanay is an IT professional, web developer, web programmer, and freelance graphic designer focused on creating modern, functional, and visually engaging digital experiences.</p>
+        <p class="small">His work connects frontend development, UI/UX, graphic design, database systems, and information technology. He approaches every project by understanding the problem, organizing the information, and developing a solution that is clear, responsive, and purposeful.</p>
+        <dl class="meta"><div><dt>Based in</dt><dd>Philippines</dd></div><div><dt>Focus</dt><dd>Web systems, interfaces, and visual communication</dd></div><div><dt>Approach</dt><dd>Simple, functional, accessible, and continuously improved</dd></div></dl>
+      </div>
+      <div class="visual about-image" role="img" aria-label="Monochrome figure moving through a structured digital environment"><svg viewBox="0 0 390 610" aria-hidden="true"><rect width="390" height="610" fill="#ddd"/><path d="M0 100h390M0 200h390M0 300h390M0 400h390M0 500h390M70 0v610M160 0v610M260 0v610" stroke="#8d8d8d" opacity=".35"/><path d="M0 610L195 270 390 610" fill="#aaa"/><circle cx="204" cy="200" r="38" fill="#333"/><path d="M158 508c5-161 17-249 52-249 39 0 58 94 67 249" fill="#454545"/><path d="M193 285l-73 106M222 286l78 105" stroke="#333" stroke-width="19" stroke-linecap="round"/><path d="M184 497l-43 110M246 497l44 110" stroke="#333" stroke-width="21"/></svg><span class="caption">Technology / structure / movement</span></div>
+    </div>
+  </section>
+
+  <section class="section skills reveal" id="skills" aria-labelledby="skills-title">
+    <div class="skills-head"><div><span class="kicker">Capabilities / tools and disciplines</span><h2 class="section-title red" id="skills-title">skills</h2></div><p class="lead">A practical mix of development, information systems, and graphic design skills.</p></div>
+    <div class="skill-layout">
+      <div class="visual skill-visual" role="img" aria-label="Monochrome abstract composition of code, layout, and database structures"><svg viewBox="0 0 600 440" aria-hidden="true"><rect width="600" height="440" fill="#242424"/><rect x="42" y="43" width="516" height="354" fill="#d8d8d8"/><rect x="42" y="43" width="125" height="354" fill="#4b4b4b"/><circle cx="105" cy="91" r="19" fill="#ddd"/><path d="M195 90h228M195 121h160M195 181h319M195 215h245M195 249h289M195 283h190" stroke="#414141" stroke-width="9"/><rect x="195" y="326" width="87" height="43" fill="#777"/><rect x="295" y="326" width="87" height="43" fill="#aaa"/><rect x="395" y="326" width="119" height="43" fill="#555"/></svg><span class="caption">Code + data + visual systems</span></div>
+      <div class="skill-groups">
+        <article class="skill-group"><h3>Frontend <span>01</span></h3><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span></div></article>
+        <article class="skill-group"><h3>Backend & data <span>02</span></h3><div class="tags"><span>PHP</span><span>Laravel</span><span>Node.js</span><span>MySQL</span><span>SQLite</span><span>Database design</span></div></article>
+        <article class="skill-group"><h3>Design <span>03</span></h3><div class="tags"><span>UI/UX</span><span>Figma</span><span>Adobe Photoshop</span><span>Canva</span><span>Layout design</span><span>Brand graphics</span></div></article>
+        <article class="skill-group"><h3>Workflow <span>04</span></h3><div class="tags"><span>Git</span><span>GitHub</span><span>Responsive design</span><span>Accessibility</span><span>Problem-solving</span><span>IT support</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects reveal" id="projects" aria-labelledby="projects-title">
+    <div class="projects-head"><div><span class="kicker">Selected work / portfolio concepts</span><h2 class="section-title red" id="projects-title">projects</h2></div><p class="lead">Selected case studies based on Sammy's development, database, information-system, and design interests.</p></div>
+    <div class="project-list">
+      <article class="project"><div class="project-no">1.</div><div><h3>Inventory Flow</h3><p>Inventory management interface for tracking items, stock movement, suppliers, and low-stock alerts.</p></div><div class="visual project-thumb" role="img" aria-label="Inventory dashboard mockup"><svg viewBox="0 0 500 220" aria-hidden="true"><rect width="500" height="220" fill="#292929"/><rect x="20" y="20" width="460" height="180" fill="#ddd"/><rect x="20" y="20" width="96" height="180" fill="#444"/><rect x="139" y="44" width="132" height="12" fill="#333"/><rect x="139" y="77" width="92" height="50" fill="#aaa"/><rect x="242" y="77" width="92" height="50" fill="#888"/><rect x="345" y="77" width="111" height="50" fill="#bbb"/><path d="M139 151h317M139 171h250" stroke="#666" stroke-width="5"/></svg><span class="caption">Dashboard / system UI</span></div><div class="stack">Next.js<br>TypeScript<br>MySQL</div></article>
+      <article class="project"><div class="project-no">2.</div><div><h3>Campus Link</h3><p>Responsive information-system concept for records, schedules, announcements, and service requests.</p></div><div class="visual project-thumb" role="img" aria-label="Campus portal mockup"><svg viewBox="0 0 500 220" aria-hidden="true"><rect width="500" height="220" fill="#555"/><rect x="24" y="24" width="452" height="172" fill="#e2e2e2"/><rect x="24" y="24" width="452" height="30" fill="#333"/><rect x="47" y="78" width="119" height="93" fill="#aaa"/><rect x="187" y="78" width="265" height="18" fill="#444"/><rect x="187" y="113" width="122" height="58" fill="#bbb"/><rect x="324" y="113" width="128" height="58" fill="#888"/></svg><span class="caption">Portal / information architecture</span></div><div class="stack">Laravel<br>PHP<br>MySQL</div></article>
+      <article class="project"><div class="project-no">3.</div><div><h3>Studio Grid</h3><p>Editorial portfolio interface connecting frontend development and freelance graphic design.</p></div><div class="visual project-thumb" role="img" aria-label="Editorial creative portfolio mockup"><svg viewBox="0 0 500 220" aria-hidden="true"><rect width="500" height="220" fill="#222"/><rect x="0" width="184" height="220" fill="#666"/><circle cx="92" cy="86" r="43" fill="#bbb"/><path d="M36 220c7-74 27-110 58-110 34 0 56 39 61 110" fill="#333"/><text x="214" y="88" fill="#eee" font-family="Arial" font-weight="700" font-size="42">STUDIO</text><text x="214" y="130" fill="#eee" font-family="Arial" font-weight="700" font-size="42">GRID</text><path d="M216 157h225M216 175h150" stroke="#888" stroke-width="5"/></svg><span class="caption">Creative frontend / editorial</span></div><div class="stack">React<br>CSS<br>Figma</div></article>
+      <article class="project"><div class="project-no">4.</div><div><h3>Data Desk</h3><p>Database application concept for records, search, filters, update history, and clear summaries.</p></div><div class="visual project-thumb" role="img" aria-label="Database records interface mockup"><svg viewBox="0 0 500 220" aria-hidden="true"><rect width="500" height="220" fill="#333"/><rect x="22" y="25" width="456" height="170" fill="#ddd"/><rect x="22" y="25" width="105" height="170" fill="#555"/><rect x="151" y="50" width="133" height="12" fill="#333"/><rect x="151" y="80" width="300" height="24" fill="#999"/><path d="M151 126h300M151 151h300M151 176h300M230 80v111M332 80v111" stroke="#888"/></svg><span class="caption">Records / CRUD workflow</span></div><div class="stack">Node.js<br>SQLite<br>JavaScript</div></article>
+    </div>
+  </section>
+
+  <section class="section experience reveal" id="experience" aria-labelledby="experience-title">
+    <div class="experience-intro"><span class="kicker">Practice / applied experience</span><h2 class="section-title red" id="experience-title">experi-<br>ence</h2><p class="lead">Experience expressed honestly through freelance design, technical practice, and project-based development.</p><div class="dot" aria-hidden="true"></div></div>
+    <div class="timeline">
+      <article class="entry"><div class="type">Freelance practice</div><div><h3>Graphic Designer</h3><p>Creates visual materials based on client or project requirements, with attention to hierarchy, consistency, readability, and practical delivery formats.</p><ul><li>Social media graphics</li><li>Posters and layouts</li><li>Brand support materials</li><li>Image editing</li></ul></div></article>
+      <article class="entry"><div class="type">Project-based</div><div><h3>Web Developer / Programmer</h3><p>Builds responsive interfaces and web application concepts while connecting frontend structure, data workflows, and user-focused design decisions.</p><ul><li>Responsive websites</li><li>CRUD applications</li><li>Interface implementation</li><li>Database integration</li></ul></div></article>
+      <article class="entry"><div class="type">Technical development</div><div><h3>Information Technology Practice</h3><p>Applies systems thinking, troubleshooting, documentation, and continuous learning to practical technology tasks and portfolio projects.</p><ul><li>Problem diagnosis</li><li>System planning</li><li>Technical documentation</li><li>Git workflow</li></ul></div></article>
+      <article class="entry"><div class="type">Ongoing</div><div><h3>Continuous Learning</h3><p>Improves development and design ability through hands-on projects, modern tools, experimentation, and iterative refinement.</p><ul><li>Modern frontend tools</li><li>Accessible interfaces</li><li>Performance</li><li>UI/UX refinement</li></ul></div></article>
+    </div>
+  </section>
+
+  <section class="section contact reveal" id="contact" aria-labelledby="contact-title">
+    <div class="contact-left"><span class="kicker">Contact / let's connect</span><h2 class="section-title red" id="contact-title">contact<br>me.</h2><span class="dot" aria-hidden="true"></span><div class="visual contact-image" role="img" aria-label="Monochrome profile silhouette placeholder"><svg viewBox="0 0 360 250" aria-hidden="true"><rect width="360" height="250" fill="#d4d4d4"/><circle cx="220" cy="87" r="45" fill="#777"/><path d="M143 250c7-96 34-145 79-145 48 0 75 51 83 145" fill="#333"/><path d="M178 88c0-55 27-76 57-68 26 7 39 38 31 76-24-9-38-34-43-55-12 27-26 42-45 47" fill="#222"/></svg><span class="caption">Available for collaboration</span></div></div>
+    <div class="contact-right"><p class="lead">Have a website, information-system, or graphic design project in mind? Send a message and start a practical conversation.</p>
+      
+    <div class="contact-links">
+      <a href="mailto:balanaysammy@gmail.com">
+        Email <span>balanaysammy@gmail.com ↗</span>
+      </a>
+      
+      <a href="https://github.com/samyongg">
+        GitHub <span>@Sammy Balanay ↗</span>
+      </a>
+      
+      <a href="https://www.facebook.com/rod.seley.3">
+        Facebook <span>Sammy Balanay ↗</span>
+      </a>
+    </div>
+
+  </div>
+  </section>
+</main>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(()=>{const nav=document.querySelector('.nav'),btn=document.querySelector('.menu'),links=[...document.querySelectorAll('.links a')],sections=[...document.querySelectorAll('.section')];btn.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));btn.textContent=open?'CLOSE':'MENU'});links.forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.textContent='MENU'}));
+
+const reveal=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('visible');reveal.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));
+
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+
+  links.forEach(a => {
+    a.classList.toggle(
+      'active',
+      a.getAttribute('href') === '#' + e.target.id
+    );
+  });
+}), {
+  threshold: 0,
+  rootMargin: '-20% 0px -60% 0px'
+});
+
+sections.forEach(s=>spy.observe(s))})();
+</script>
+</body>
+</html>
